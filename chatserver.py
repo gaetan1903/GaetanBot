@@ -4,7 +4,7 @@ from chatterbot.trainers import ListTrainer
 
 
 chatbot = ChatBot(
-    "@ti-asa",
+    "Gaetan Jonathan",
     logic_adapters=[
         "chatterbot.logic.BestMatch"
     ],
