@@ -13,7 +13,7 @@ EXPOSE 80
 
 # Add our code
 WORKDIR /opt/
-git clone https://github.com/gaetan1903/GaetanBot.git
+RUN git clone https://github.com/gaetan1903/GaetanBot.git
 
 		
 CMD gunicorn --bind 0.0.0.0:80 wsgi 
