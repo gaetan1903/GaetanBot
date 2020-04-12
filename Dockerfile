@@ -8,6 +8,9 @@ ADD ./requirements.txt /tmp/requirements.txt
 # Install dependencies
 RUN pip3 install --no-cache-dir -q -r /tmp/requirements.txt
 
+# Expose the port that you need
+EXPOSE 80
+
 # Add our code
 WORKDIR /opt/
 git clone https://github.com/gaetan1903/GaetanBot.git
