@@ -8,12 +8,9 @@ ADD ./requirements.txt /tmp/requirements.txt
 # Install dependencies
 RUN pip3 install --no-cache-dir -q -r /tmp/requirements.txt
 
-# Expose the port that you need
-EXPOSE 80
-
 # Add our code
 ADD * /opt/
 WORKDIR /opt/
 
 		
-CMD gunicorn --bind 0.0.0.0:80 wsgi 
+CMD gunicorn --bind 0.0.0.0:$PORT wsgi 
