@@ -1,6 +1,7 @@
 from flask import Flask, request
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
+from chatterbot.trainers import ChatterBotCorpusTrainer
 
 
 chatbot = ChatBot(
@@ -13,10 +14,14 @@ chatbot = ChatBot(
 trainer = ListTrainer(chatbot)
 
 trainer.train([
-    "Salut",
-    "Salut",
-    "ça va"
+    "Qui est tu?",
+    "C'est Gaetan Jonathan"
 ])
+
+trainer.train('chatterbot.corpus.french.greetings')
+trainer.train('chatterbot.corpus.french.conversations')
+trainer.train('botprofile')
+
 app = Flask(__name__)
 
 
