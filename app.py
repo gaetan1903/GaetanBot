@@ -11,16 +11,10 @@ chatbot = ChatBot(
     ],
 )
 
-trainer = ListTrainer(chatbot)
-
-trainer.train([
-    "Qui est tu?",
-    "C'est Gaetan Jonathan"
-])
+trainer = ChatterBotCorpusTrainer(chatbot)
 
 trainer.train('chatterbot.corpus.french.greetings')
 trainer.train('chatterbot.corpus.french.conversations')
-trainer.train('botprofile')
 
 app = Flask(__name__)
 
@@ -28,12 +22,9 @@ app = Flask(__name__)
 @app.route('/bot', methods=['POST'])
 def listen():
     text = request.form.get('text')
-    #print(text)
-    text = chatbot.get_response(text.strip()[1:-1])
-    #print(text)
+    text = chatbot.get_response(text.strip())
     return str(text)
 
-    #  return str(chatbot.get_response(request.form.get('text')))
 
 
 @app.route('/', methods=['GET'])
