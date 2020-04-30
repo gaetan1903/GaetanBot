@@ -7,7 +7,11 @@ from chatterbot.trainers import ChatterBotCorpusTrainer
 chatbot = ChatBot(
     "Gaetan Jonathan",
     logic_adapters=[
-        "chatterbot.logic.BestMatch"
+        {
+            "import_path": "chatterbot.logic.LogicAdapter",
+            "maximum_similarity_threshold" : 0.8,
+            "default_response" : "Vous chercher peut être de l'aide\nTaper: gaetan search"
+        } 
     ],
 )
 
