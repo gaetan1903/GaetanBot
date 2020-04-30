@@ -1,8 +1,8 @@
 #Grab the latest ubuntu image
-FROM ubuntu:latest
+FROM ubuntu:18.04
 
 # Install python and pip
-RUN apt update && apt install -y python3.7 python3-pip
+RUN apt update && apt install -y python3 python3-pip
 ADD ./requirements.txt /tmp/requirements.txt
 
 # Install dependencies
