@@ -11,10 +11,28 @@ chatbot = ChatBot(
     ],
 )
 
-trainer = ChatterBotCorpusTrainer(chatbot)
 
-trainer.train('chatterbot.corpus.french.greetings')
-trainer.train('chatterbot.corpus.french.conversations')
+trainer0 = ChatterBotCorpusTrainer(chatbot)
+trainer1 = ListTrainer(chatbot)
+
+trainer0.train('chatterbot.corpus.french.greetings')
+trainer1.train([
+    "Gaetan",
+    "Vous voulez dire 'gaetan'?, \n Tapez gaetan help pour plus d'info sur la commande",
+    "Merci",
+    "Je vous en prie"
+])
+trainer1.train([
+    "search",
+    "Vous vous êtes trompez? \n  taper gaetan help pour plus d'info",
+    "Merci beaucoup",
+    "De rien"
+])
+
+trainer1.train([
+    "Pouvez-vous m’en dire plus au sujet de votre entreprise ?",
+    "Eh bien, Ceci est un bot qui va recuperer Music/Video/apk/ et plus pour vous ur le web"
+])
 
 app = Flask(__name__)
 
