@@ -20,6 +20,7 @@ trainer0 = ChatterBotCorpusTrainer(chatbot)
 trainer1 = ListTrainer(chatbot)
 
 trainer0.train('chatterbot.corpus.french.greetings')
+trainer0.train('chatterbot.corpus.english.greetings')
 trainer1.train([
     "Gaetan",
     "Vous voulez dire 'gaetan'?, \n Tapez gaetan help pour plus d'info sur la commande",
